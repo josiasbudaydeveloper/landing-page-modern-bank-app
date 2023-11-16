@@ -3,16 +3,26 @@ import styles from "../styles";
 
 export default function Stats() {
   return (
-    <section className={`${styles.flexCenter} flex-row flex-wrap sm:mb-20 mb-6`}>
+    <section className={`flex justify-between items-center flex-row flex-wrap sm:mb-20 mb-6`}>
       {stats.map((stat, index) => (
-        <div key={stat.id} className={`flex-1 flex justify-start items-center flex-row m-3`}>
-          <h4 className="font-poppins font-semibold sm:text-[40px] text-[30px]
-            xs:leading-[53px] leading-[43px] text-white
-          ">{stat.value}</h4>
-          <p className="font-poppins font-normal sm:text-[20px] text-[15px]
-            xs:leading-[26px] leading-[21px] text-gradient uppercase ml-3
-          ">{stat.title}</p>
-        </div>
+        <>
+          <div key={stat.id} className={`flex items-center flex-row m-3`}>
+            <h4 className="font-poppins font-semibold sm:text-[40px] text-[30px]
+              xs:leading-[53px] leading-[43px] text-white
+            ">{stat.value}</h4>
+            <p className="font-poppins font-normal sm:text-[20px] text-[15px]
+              xs:leading-[26px] leading-[21px] text-gradient uppercase ml-3
+            ">{stat.title}</p>
+          </div>
+
+          { index !== stats.length -1 ? (
+            <p className="sm:block hidden font-poppins font-normal sm:text-[20px] text-[15px]
+            xs:leading-[26px] leading-[21px] text-dimWhite uppercase ml-3
+            ">
+              |
+            </p>
+          ) : ""}
+        </>
       ))}
     </section>
   )
